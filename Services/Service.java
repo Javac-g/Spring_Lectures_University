@@ -47,4 +47,21 @@ public class Service {
             }
         }
     }
+
+
+    public ResponseDTO create(RequestDTO json){
+
+        ResponseDTO user = new ResponseDTO();
+
+        user.setName(json.getName());
+        user.setId(json.getId());
+        user.setTool(json.getTool());
+
+        setEnum(user,json);
+        log("Created.txt",user);
+
+        database.add(user);
+
+        return user;
+    }
 }
