@@ -1,0 +1,9 @@
+POST http://localhost:8080/sigma/a
+Content-Type: application/json
+
+{
+  "name" : "Maks",
+  "id" : 1,
+  "tool" : {"first" : "IDE","second" :  "lang"},
+  "carList" : [{"value": "A"},{"value" : "VVVV"}]
+}

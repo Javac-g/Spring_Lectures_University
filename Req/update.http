@@ -1,0 +1,9 @@
+PUT http://localhost:8080/sigma/u
+Content-Type: application/json
+
+{
+  "name" : "Maks",
+  "id" : 7,
+  "tool" : {"first" : "IDE","second" :  "Java lang"},
+  "carList" : [{"value": "B"},{"value" : "VVVV"}]
+}
