@@ -86,4 +86,19 @@ public class Service {
         }
         return null;
     }
+    public Integer delete_one(Integer id){
+        int IntexToRemove = -1;
+
+        for (int i = 0; i < database.size(); i++){
+            if (database.get(i).getId().equals(id)){
+                log("Deleted.dat",database.get(i));
+                IntexToRemove = i;
+            }
+        }
+        if (IntexToRemove != -1){
+            database.remove(IntexToRemove);
+            return IntexToRemove;
+        }
+        return null;
+    }
 }
