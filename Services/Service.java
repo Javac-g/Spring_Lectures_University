@@ -21,13 +21,13 @@ public class Service {
     public  void log(String type, ResponseDTO user){
         byte[] data = ("\nName: " + user.getName()).getBytes();
         try(ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            FileOutputStream fileOutputStream = new FileOutputStream(type,true);
+            FileOutputStream fileOutputStream = new FileOutputStream("log.dat",true);
             DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream)){
 
 
             byteArrayOutputStream.write(data);
             byteArrayOutputStream.writeTo(fileOutputStream);
-            dataOutputStream.writeUTF("\nID: " + user.getId());
+            dataOutputStream.writeUTF("\nID: " + user.getId()+ "\nType: " + type);
 
 
         }catch (IOException e){
@@ -58,7 +58,7 @@ public class Service {
         user.setTool(json.getTool());
 
         setEnum(user,json);
-        log("Created.dat",user);
+        log("Created",user);
 
         database.add(user);
 
@@ -67,7 +67,7 @@ public class Service {
     public ResponseDTO read(Integer id){
         for (ResponseDTO user: database){
             if (user.getId().equals(id)){
-                log("Searched.dat",user);
+                log("Searched",user);
                 return user;
             }
         }
@@ -80,7 +80,7 @@ public class Service {
             user.setId(json.getId());
             user.setTool(json.getTool());
             setEnum(user,json);
-            log("Updated.dat",user);
+            log("Updated",user);
             return user;
 
         }
@@ -91,13 +91,25 @@ public class Service {
 
         for (int i = 0; i < database.size(); i++){
             if (database.get(i).getId().equals(id)){
-                log("Deleted.dat",database.get(i));
+                log("Deleted_One",database.get(i));
                 IntexToRemove = i;
             }
         }
         if (IntexToRemove != -1){
             database.remove(IntexToRemove);
             return IntexToRemove;
+        }
+        return null;
+    }
+    public Integer delete_two(Integer id){
+
+        for (ResponseDTO user: database){
+            if (user.getId().equals(id)){
+
+                database.remove(user);
+                log("Deleted_Two",user);
+                return id;
+            }
         }
         return null;
     }
