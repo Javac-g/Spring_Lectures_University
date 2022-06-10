@@ -58,10 +58,19 @@ public class Service {
         user.setTool(json.getTool());
 
         setEnum(user,json);
-        log("Created.txt",user);
+        log("Created.dat",user);
 
         database.add(user);
 
         return user;
+    }
+    public ResponseDTO read(Integer id){
+        for (ResponseDTO user: database){
+            if (user.getId().equals(id)){
+                log("Searched.dat",user);
+                return user;
+            }
+        }
+        return null;
     }
 }
