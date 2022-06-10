@@ -1,4 +1,4 @@
-PUT http://localhost:8080/sigma/u
+PUT http://localhost:8080/sigma/u?id=1
 Content-Type: application/json
 
 {
