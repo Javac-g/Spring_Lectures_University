@@ -34,4 +34,16 @@ public class Controller {
     public ResponseDTO update(@RequestParam Integer id, @RequestBody RequestDTO json){
         return service.update(id, json);
     }
+    @DeleteMapping(value = "/d",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String delete(@RequestParam Integer id){
+        if (id < 5){
+            return service.print("First - was deleted person № ") + service.delete_one(id);
+        }
+        else if (id > 5){
+
+            return service.print("Second - was deleted person № ") + service.delete_two(id);
+        }
+        return "wrong id";
+    }
 }
