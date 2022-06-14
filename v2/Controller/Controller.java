@@ -37,6 +37,19 @@ public class Controller {
 
     }
 
+    @DeleteMapping(value = "/d",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String delete(@RequestParam  Integer id){
+
+            if (id > 3) {
+                return "One: " + service.print(service.deleteA(id));
+
+            } else if (id <= 3) {
+
+                return "Two: " +  service.print(service.deleteA(id));
+            }
+            return "Nothing to delete";
+    }
 
 
 }
