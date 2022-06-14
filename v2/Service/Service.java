@@ -98,6 +98,15 @@ public class Service {
         }
         return null;
     }
+    public Integer deleteB(Integer id){
+        for (ResponseDTO user: datalist){
+            if (user.getId().equals(id)){
+                datalist.remove(user);
+                return id;
+            }
+        }
+        return null;
+    }
 
 
 
