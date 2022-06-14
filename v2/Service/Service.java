@@ -1,5 +1,6 @@
 package com.MAX.v2.Service;
 
+import com.MAX.v2.Controller.Car;
 import com.MAX.v2.Controller.ResponseDTO;
 
 import java.io.ByteArrayOutputStream;
@@ -33,5 +34,21 @@ public class Service {
             e.printStackTrace();
 
         }
+    }
+    public void setEnum(ResponseDTO user,RequestDTO json){
+
+        for (Car x : json.getCarList()){
+            switch (x.getValue()){
+                case "A" :
+                    user.setCarEnum(CarEnum.Audi);
+                    break;
+                case "B" :
+                    user.setCarEnum(CarEnum.BMW);
+                    break;
+            }
+        }
+
+
+
     }
 }
