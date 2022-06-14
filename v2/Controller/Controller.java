@@ -29,6 +29,13 @@ public class Controller {
 
         return service.read(id);
     }
+    @PutMapping(value = "/u",produces = MediaType.APPLICATION_JSON_VALUE) //@RequestMapping(value = "/u",method = RequestMethod.PUT)
+    @ResponseBody
+    public ResponseDTO update(@RequestParam Integer id,@RequestBody RequestDTO json){
+
+        return service.update(id,json);
+
+    }
 
 
 
