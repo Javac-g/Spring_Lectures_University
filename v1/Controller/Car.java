@@ -1,4 +1,4 @@
-package com.MAX.Controller;
+package com.MAX.v1.Controller;
 
 public class Car {
     String value;

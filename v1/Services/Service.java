@@ -1,7 +1,7 @@
-package com.MAX.Services;
+package com.MAX.v1.Services;
 
-import com.MAX.Controller.Car;
-import com.MAX.Controller.ResponseDTO;
+import com.MAX.v1.Controller.Car;
+import com.MAX.v1.Controller.ResponseDTO;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;

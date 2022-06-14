@@ -1,4 +1,4 @@
-package com.MAX.Controller;
+package com.MAX.v1.Controller;
 
 public class Tool {
     String first,second;

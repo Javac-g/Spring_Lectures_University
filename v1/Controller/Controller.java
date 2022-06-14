@@ -1,7 +1,7 @@
-package com.MAX.Controller;
+package com.MAX.v1.Controller;
 
-import com.MAX.Services.RequestDTO;
-import com.MAX.Services.Service;
+import com.MAX.v1.Services.RequestDTO;
+import com.MAX.v1.Services.Service;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
