@@ -1,9 +1,9 @@
-POST http://localhost:8080/sigma/a
+POST http://localhost:8080/omega/a
 Content-Type: application/json
 
 {
   "name" : "Maks",
-  "id" : 1,
+  "id" : 7,
   "tool" : {"first" : "IDE","second" :  "lang"},
   "carList" : [{"value": "A"},{"value" : "VVVV"}]
 }
