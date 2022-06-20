@@ -90,7 +90,7 @@ public class Service {
         return null;
     }
 
-    public Integer delete(Integer id){
+    public String delete(String str,Integer id){
         int index = -1;
         for (int i = 0; i < datalist.size(); i++){
             if (datalist.get(i).getId().equals(id)){
@@ -100,8 +100,8 @@ public class Service {
         }
         if (index != -1){
             datalist.remove(index);
-            return index;
+            return str + index;
         }
-        return null;
+        return "nobody deleted";
     }
 }

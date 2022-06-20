@@ -28,4 +28,16 @@ public class Controller {
         return service.read(id);
 
     }
+    @PutMapping(value = "/u",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseDTO update(@RequestParam Integer id,@RequestBody RequestDTO json){
+
+        return service.update(id, json);
+
+    }
+    @DeleteMapping(value = "/d",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String delete(@RequestParam Integer id){
+        return service.delete(service.print("Was deleted person №"),id );
+    }
 }
