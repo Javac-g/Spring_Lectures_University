@@ -81,5 +81,28 @@ public class Services {
         }
         return null;
     }
+    public Integer deleteA(Integer id){
+        for(ResponseDTO user:datalist){
+            if (user.getId().equals(id)){
+                datalist.remove(user);
+                return id;
+            }
+        }
+        return null;
+    }
+    public Integer deleteB(Integer id){
+        int  index = -1;
+        for (int i = 0 ; i < datalist.size(); i++){
+            if (datalist.get(i).getId().equals(id)){
+                index = i;
+                log("Deleted",datalist.get(index));
+            }
+        }
+        if (index != -1){
+            datalist.remove(index);
+            return index;
+        }
+        return null;
+    }
 
 }
