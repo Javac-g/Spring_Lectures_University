@@ -46,4 +46,7 @@ public class Services {
             }
         }
     }
+    public String print(String msg){
+        return msg;
+    }
 }
