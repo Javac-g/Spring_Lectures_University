@@ -1,5 +1,7 @@
 package com.MAX.v4.Service;
 
+import com.MAX.v4.Controller.Car;
+import com.MAX.v4.Controller.RequestDTO;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -27,6 +29,21 @@ public class Services {
 
         }catch (IOException e){
             e.printStackTrace();
+        }
+    }
+    public void setEnum(ResponseDTO user, RequestDTO json){
+        for (Car car : json.getCarlist()){
+            switch (car.getValue()){
+                case "S":
+                    user.setCarEnum(CarEnum.Supra);
+                    break;
+                case "L":
+                    user.setCarEnum(CarEnum.Lanos);
+                    break;
+                default:
+                    user.setCarEnum(CarEnum.Ferrary);
+                    break;
+            }
         }
     }
 }
