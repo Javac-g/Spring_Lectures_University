@@ -1,4 +1,4 @@
-POST http://localhost:8080/App/a
+POST http://localhost:8080/vk/a
 Content-Type: application/json
 
 {

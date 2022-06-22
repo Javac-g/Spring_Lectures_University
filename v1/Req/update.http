@@ -1,9 +1,9 @@
-PUT http://localhost:8080/App/u?id=8
+PUT http://localhost:8080/vk/u?id=8
 Content-Type: application/json
 
 {
   "name" : "Markes",
   "id" : 77,
   "tool" : {"first" : "IDE","second" :  "Java lang"},
-  "carList" : [{"value": "P"},{"value" : "VVVV"}]
+  "carList" : [{"value": "L"},{"value" : "VVVV"}]
 }
