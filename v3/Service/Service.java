@@ -7,7 +7,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,9 +49,7 @@ public class Service {
                 case "P":
                     user.setCarEnum(CarEnum.Porshe);
                     break;
-                default:
-                    user.setCarEnum(CarEnum.Walker);
-                    break;
+
             }
         }
     }

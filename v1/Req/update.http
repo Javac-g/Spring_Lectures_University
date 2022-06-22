@@ -1,9 +1,9 @@
-PUT http://localhost:8080/omega/u?id=5
+PUT http://localhost:8080/App/u?id=8
 Content-Type: application/json
 
 {
-  "name" : "Maks",
-  "id" : 7,
+  "name" : "Markes",
+  "id" : 77,
   "tool" : {"first" : "IDE","second" :  "Java lang"},
-  "carList" : [{"value": "B"},{"value" : "VVVV"}]
+  "carList" : [{"value": "P"},{"value" : "VVVV"}]
 }

@@ -1,2 +1,2 @@
-DELETE http://localhost:8080/omega/d?id=7
+DELETE http://localhost:8080/App/d?id=77
 Accept: application/json
