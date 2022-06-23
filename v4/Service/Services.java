@@ -2,6 +2,7 @@ package com.MAX.v4.Service;
 
 import com.MAX.v4.Controller.Car;
 import com.MAX.v4.Controller.RequestDTO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ import java.util.List;
 
 public class Services {
     List<ResponseDTO> datalist = new ArrayList<>();
+    @Autowired
+    public Services() {
+    }
 
     @Value("${prop.keyTwo}")
     private String firstProperty;
