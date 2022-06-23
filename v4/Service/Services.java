@@ -2,6 +2,7 @@ package com.MAX.v4.Service;
 
 import com.MAX.v4.Controller.Car;
 import com.MAX.v4.Controller.RequestDTO;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayOutputStream;
@@ -14,7 +15,11 @@ import java.util.List;
 
 public class Services {
     List<ResponseDTO> datalist = new ArrayList<>();
-    private String firstProperty,secondProperty;
+
+    @Value("${prop.keyTwo}")
+    private String firstProperty;
+    @Value("${prop.keyOne}")
+    private String secondProperty;
 
     public String getFirstProperty() {
         return firstProperty;
