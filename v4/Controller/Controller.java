@@ -12,7 +12,11 @@ public class Controller {
 
     @Autowired
     private Services service;
+    @GetMapping(value = "/p",produces = MediaType.APPLICATION_JSON_VALUE)
+    public String prop(@RequestBody RequestDTO user){
 
+        return "\n" + service.getFirstProperty() + "\n" + service.getSecondProperty();
+    }
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseDTO create(@RequestBody RequestDTO user){
         return service.create(user);
