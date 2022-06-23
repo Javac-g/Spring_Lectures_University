@@ -16,29 +16,28 @@ import java.util.List;
 
 public class Services {
     List<ResponseDTO> datalist = new ArrayList<>();
-    @Autowired
+
     public Services() {
     }
+    @Value("${prop.KeyThree}")
+    private Integer thirdProperty;
+    @Value("${prop.KeyFour}")
+    private boolean fourthProperty;
 
-    @Value("${prop.keyTwo}")
-    private String firstProperty;
-    @Value("${prop.keyOne}")
-    private String secondProperty;
-
-    public String getFirstProperty() {
-        return firstProperty;
+    public Integer getThirdProperty() {
+        return thirdProperty;
     }
 
-    public void setFirstProperty(String firstProperty) {
-        this.firstProperty = firstProperty;
+    public void setThirdProperty(Integer thirdProperty) {
+        this.thirdProperty = thirdProperty;
     }
 
-    public String getSecondProperty() {
-        return secondProperty;
+    public boolean getFourthProperty() {
+        return fourthProperty;
     }
 
-    public void setSecondProperty(String secondProperty) {
-        this.secondProperty = secondProperty;
+    public void setFourthProperty(boolean fourthProperty) {
+        this.fourthProperty = fourthProperty;
     }
 
     public void log(String type, ResponseDTO user){

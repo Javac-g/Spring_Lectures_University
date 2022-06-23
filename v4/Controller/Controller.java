@@ -1,6 +1,7 @@
 package com.MAX.v4.Controller;
 
 import com.MAX.v4.Service.ResponseDTO;
+import com.MAX.v4.Service.ServiceOne;
 import com.MAX.v4.Service.Services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -12,6 +13,10 @@ public class Controller {
 
 
     private Services service;
+    @Autowired
+    private ServiceOne serviceOne;
+
+
 
     public Services getService() {
         return service;
@@ -25,7 +30,7 @@ public class Controller {
     @ResponseBody
     public String prop(){
 
-        return "\n" + service.getFirstProperty() + "\n" + service.getSecondProperty();
+        return "\n" + serviceOne.getFirstProperty() + "\n" + serviceOne.getSecondProperty() + "\n" +service.getThirdProperty()+"\n"+service.getFourthProperty();
     }
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
