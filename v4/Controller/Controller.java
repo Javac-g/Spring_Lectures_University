@@ -6,12 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+
 @RequestMapping("/vk")
 public class Controller {
 
-    @Autowired
+
     private Services service;
+
+    public Services getService() {
+        return service;
+    }
+
+    public void setService(Services service) {
+        this.service = service;
+    }
+
     @GetMapping(value = "/p",produces = MediaType.APPLICATION_JSON_VALUE)
     public String prop(@RequestBody RequestDTO user){
 
