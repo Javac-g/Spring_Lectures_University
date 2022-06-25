@@ -1,5 +1,8 @@
 package com.MAX.v5.Services;
 
+import com.MAX.v5.Controller.Car;
+import com.MAX.v5.Controller.RequestDTO;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
@@ -34,4 +37,20 @@ public class Service {
 
 
     }
-}
+
+    public void setEnum(ResponseDTO user, RequestDTO json){
+        for (Car car: json.getCarlist()){
+            switch (car.getValue()){
+                case "R":
+                    user.setCarEnum(CarEnum.Rich);
+                    break;
+                case "P":
+                    user.setCarEnum(CarEnum.Poor);
+                    break;
+                default:
+                    user.setCarEnum(CarEnum.bycicle);
+                    break;
+            }
+        }
+    }
+}//
