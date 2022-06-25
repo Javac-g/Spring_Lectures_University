@@ -8,17 +8,18 @@ import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Service {
     List<ResponseDTO> datalist = new ArrayList<>();
-
+    public String now;
     public String print(String msg){
         return msg;
     }
 
     public void log(String type,ResponseDTO user){
-        byte[] data = ("\nType: " + type + "\nName: " + user.getName()).getBytes();
+        byte[] data = ("\nType: " + type + "\nDate: " + java.time.Clock.systemUTC().millis() + "\nName: " + user.getName()).getBytes();
         String str = "ID: " + user.getId();
 
         try(FileOutputStream fileOutputStream = new FileOutputStream("log.dat",true);
@@ -52,5 +53,15 @@ public class Service {
                     break;
             }
         }
+    }
+    public ResponseDTO create(RequestDTO json){
+        ResponseDTO user = new ResponseDTO();
+        user.setName(json.getName());
+        user.setId(json.getId());
+        user.setTool(json.getTool());
+        setEnum(user,json);
+        log("Created:",user);
+        datalist.add(user);
+        return user;
     }
 }//
