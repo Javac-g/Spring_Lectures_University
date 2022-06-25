@@ -26,4 +26,7 @@ public class Controller {
         return service.read(id);
 
     }
+    public ResponseDTO update(@RequestParam Integer id,@RequestBody RequestDTO json){
+        return service.update(id,json);
+    }
 }
