@@ -4,14 +4,16 @@ import com.MAX.v6.Services.ResponseDTO;
 import com.MAX.v6.Services.ServiceMain;
 import com.MAX.v6.Services.ServiceOne;
 import com.MAX.v6.Services.ServiceTwo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/vj")
+@RequestMapping("/app")
 public class Controller {
 
     private ServiceMain main;
     private ServiceOne testOne;
+    @Autowired
     private ServiceTwo testTwo;
 
     public ServiceOne getTestOne() {

@@ -2,8 +2,9 @@ package com.MAX.v6.Services;
 
 import com.MAX.v6.Controller.Car;
 import com.MAX.v6.Controller.RequestDTO;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 
+
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,11 +22,11 @@ public class ServiceMain {
         String str = "\nID: " + user.getId();
 
         try(FileOutputStream fileOutputStream = new FileOutputStream("log.txt",true);
-            ByteOutputStream byteOutputStream = new ByteOutputStream();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream)){
 
-            byteOutputStream.write(data);
-            byteOutputStream.writeTo(fileOutputStream);
+            byteArrayOutputStream.write(data);
+            byteArrayOutputStream.writeTo(fileOutputStream);
             dataOutputStream.writeUTF(str);
 
 
