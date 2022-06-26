@@ -1,5 +1,7 @@
 package com.MAX.v6.Services;
 
+import com.MAX.v6.Controller.Car;
+import com.MAX.v6.Controller.RequestDTO;
 import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 
 import java.io.DataOutputStream;
@@ -33,5 +35,23 @@ public class ServiceMain {
             e.printStackTrace();
 
         }
+    }
+
+    public void setEnum(ResponseDTO user, RequestDTO json){
+
+        for (Car car: json.getCarlist()){
+            switch (car.getValue()){
+                case "B":
+                    user.setCarEnum(CarEnum.BIG);
+                    break;
+                case "S":
+                    user.setCarEnum(CarEnum.SMALL);
+                    break;
+                default:
+                    user.setCarEnum(CarEnum.WALK);
+                    break;
+            }
+        }
+
     }
 }
