@@ -15,15 +15,22 @@ public class Controller {
     }
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseDTO add(@RequestBody RequestDTO user){
+    public ResponseDTO addData(@RequestBody RequestDTO user){
 
         return main.create(user);
 
     }
     @GetMapping(value = "/f",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseDTO Find(@RequestParam Integer id){
+    public ResponseDTO FindData(@RequestParam Integer id){
         return main.read(id);
+
+    }
+    @PutMapping(value = "/u",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseDTO UpdateData(@RequestParam Integer id,@RequestBody RequestDTO user){
+
+        return main.update(id, user);
 
     }
 
