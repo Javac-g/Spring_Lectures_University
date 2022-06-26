@@ -2,6 +2,8 @@ package com.MAX.v6.Controller;
 
 import com.MAX.v6.Services.ResponseDTO;
 import com.MAX.v6.Services.ServiceMain;
+import com.MAX.v6.Services.ServiceOne;
+import com.MAX.v6.Services.ServiceTwo;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,9 +11,24 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
 
     private ServiceMain main;
+    private ServiceOne testOne;
+    private ServiceTwo testTwo;
+
+    public ServiceOne getTestOne() {
+        return testOne;
+    }
+
+    public void setTestOne(ServiceOne testOne) {
+        this.testOne = testOne;
+    }
 
     public Controller(ServiceMain main) {
         this.main = main;
+    }
+    @GetMapping("/server")
+    @ResponseBody
+    public String login(){
+        return "\n" + testOne.getOne() + "\n" + testOne.getTwo()+ "\n" + testTwo.getOne()+ "\n" + testTwo.getTwo();
     }
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
