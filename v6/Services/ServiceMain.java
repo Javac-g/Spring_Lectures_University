@@ -74,4 +74,16 @@ public class ServiceMain {
         }
         return null;
     }
+    public ResponseDTO update(Integer id, RequestDTO json){
+        ResponseDTO user = read(id);
+        if (user != null){
+            user.setName(json.getName());
+            user.setId(json.getId());
+            user.setTool(json.getTool());
+            setEnum(user,json);
+            log("Updated",user);
+            return user;
+        }
+        return null;
+    }
 }
