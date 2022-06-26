@@ -86,4 +86,13 @@ public class ServiceMain {
         }
         return null;
     }
+    public Integer deleteA(Integer id){
+        for (ResponseDTO user: datalist){
+            if (user.getId().equals(id)){
+                datalist.remove(user);
+                return datalist.indexOf(user);
+            }
+        }
+        return null;
+    }
 }
