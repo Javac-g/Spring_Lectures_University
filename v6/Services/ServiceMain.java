@@ -95,4 +95,17 @@ public class ServiceMain {
         }
         return null;
     }
+    public Integer deleteB(Integer id){
+        int R = -1;
+        for (int i = 0 ; i < datalist.size(); i++){
+            if (datalist.get(i).getId().equals(id)){
+                R = i;
+            }
+        }
+        if (R != -1){
+            datalist.remove(R);
+            return R;
+        }
+        return null;
+    }
 }
