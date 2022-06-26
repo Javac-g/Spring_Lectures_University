@@ -1,6 +1,6 @@
 package com.MAX.v6.Services;
 
-import com.MAX.v5.Controller.Tool;
+import com.MAX.v6.Controller.Tool;
 
 public class ResponseDTO {
     String name;
