@@ -33,6 +33,16 @@ public class Controller {
         return main.update(id, user);
 
     }
+    @DeleteMapping(value = "/d",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deleteData(@RequestParam Integer id){
+        if (id < 2){
+            return main.print("Was deleted person №" + main.deleteA(id));
 
+        } else if (id >= 2) {
+            return main.print("Was deleted person №") + main.deleteB(id);
+        }
 
+        return "Nobody wasnt deleted";
+    }
 }
