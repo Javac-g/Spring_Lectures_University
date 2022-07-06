@@ -86,13 +86,23 @@ public class Service {
         int index = -1;
         for (int i = 0; i < datalist.size();i++){
             if(datalist.get(i).getId().equals(id)){
-                log("Deleted",datalist.get(i));
+                log("Deleted A",datalist.get(i));
                 index = i;
             }
         }
         if (index != -1){
             datalist.remove(index);
             return index;
+        }
+        return null;
+    }
+    public Integer deleteB(Integer id){
+        for (ResponseDTO user:datalist){
+            if (user.getId().equals(id)){
+                datalist.remove(user);
+                log("Deleted B",user);
+                return datalist.indexOf(user);
+            }
         }
         return null;
     }
