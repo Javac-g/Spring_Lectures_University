@@ -2,8 +2,9 @@ package com.MAX.v7.Service;
 
 import com.MAX.v7.Controller.Car;
 import com.MAX.v7.Controller.RequestDTO;
-import com.sun.xml.internal.messaging.saaj.util.ByteOutputStream;
 
+
+import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -21,11 +22,11 @@ public class Service {
         String additional = "\nTool: first - " + user.getTool().getFirst()+"\nTool: - second"+ user.getTool().getSecond() +"\nCar: "+ user.getCarEnum();
 
         try(FileOutputStream fileOutputStream = new FileOutputStream("logger.dat",true);
-            ByteOutputStream byteOutputStream = new ByteOutputStream();
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream)){
 
-            byteOutputStream.write(data);
-            byteOutputStream.writeTo(fileOutputStream);
+            byteArrayOutputStream.write(data);
+            byteArrayOutputStream.writeTo(fileOutputStream);
             dataOutputStream.writeUTF(additional);
 
         }catch (IOException e){
