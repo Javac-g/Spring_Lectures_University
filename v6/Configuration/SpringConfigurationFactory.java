@@ -16,6 +16,8 @@ public class SpringConfigurationFactory {
         return new ServiceMain();
 
     }
+
+
     @Bean(name = "ServiceOne")
     public ServiceOne serviceOneBean(){
         return new ServiceOne();

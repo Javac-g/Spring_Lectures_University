@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 public class ServiceOne {
     @Value("${prop.KeyOne}")
     private String One;
-    @Value("${prop.Key}")
+    @Value("${prop.KeyFour}")
     private Integer two;
 
     public String getOne() {
