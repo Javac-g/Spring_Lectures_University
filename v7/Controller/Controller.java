@@ -34,5 +34,15 @@ public class Controller {
         return service.update(id, json);
 
     }
+    @DeleteMapping(value = "/d",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deleteData(@RequestParam Integer id){
+        if (id % 2 == 0){
+            return service.print("Was deleted person N: " + service.deleteA(id));
+        } else if (id % 2 != 0) {
+            return service.print("Was deleted person N: ") + service.deleteB(id);
+        }
+        return "Nobody was deleted";
+    }
 
 }//EOF
