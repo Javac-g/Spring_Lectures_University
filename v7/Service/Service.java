@@ -80,6 +80,7 @@ public class Service {
             user.setTool(json.getTool());
             setEnum(user,json);
             log("Updated",user);
+            return user;
         }
         return null;
     }

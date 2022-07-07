@@ -16,7 +16,7 @@ public class Controller {
     }
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public ResponseDTO addData(@RequestParam RequestDTO user){
+    public ResponseDTO addData(@RequestBody RequestDTO user){
         return service.create(user);
 
     }
