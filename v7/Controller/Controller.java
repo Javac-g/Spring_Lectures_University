@@ -28,4 +28,11 @@ public class Controller {
 
     }
 
-}
+    @PutMapping(value = "/u",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseDTO updateData(@RequestParam Integer id,@RequestBody RequestDTO json){
+        return service.update(id, json);
+
+    }
+
+}//EOF
