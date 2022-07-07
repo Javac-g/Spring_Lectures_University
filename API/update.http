@@ -1,0 +1,9 @@
+PUT http://localhost:8080/daddy/u?id=8
+Content-Type: application/json
+
+{
+  "name" : "Markes",
+  "id" : 77,
+  "tool" : {"first" : "IDE","second" :  "Java lang"},
+  "carList" : [{"value": "L"},{"value" : "VVVV"}]
+}

@@ -1,0 +1,2 @@
+DELETE http://localhost:8080/daddy/d?id=77
+Accept: application/json
