@@ -1,5 +1,7 @@
 package com.MAX.v8.Service;
 
+import com.MAX.v8.Controller.RequestDTO;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
@@ -39,5 +41,16 @@ public class Service_Main {
 
 
     }
+    public ResponseDTO Create(RequestDTO data){
+        ResponseDTO user = new ResponseDTO();
 
+        user.setName(data.getName());
+        user.setId(data.getId());
+        user.setTool(data.getTool());
+        user.setEnum(user,data);
+        log("Created",user);
+        datalist.add(user);
+        return user;
+
+    }
 }
