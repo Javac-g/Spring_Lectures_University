@@ -1,7 +1,7 @@
 package com.MAX.v8.Controller;
 
 public class Tool {
-    String first,second;
+    private String first,second;
 
     public String getFirst() {
         return first;
