@@ -62,4 +62,15 @@ public class Service_Main {
         }
         return null;
     }
+    public ResponseDTO update(Integer id, RequestDTO data){
+        ResponseDTO user = Read(id);
+        if (user != null){
+            user.setName(data.getName());
+            user.setId(data.getId());
+            user.setTool(data.getTool());
+            user.setEnum(user,data);
+            return user;
+        }
+        return null;
+    }
 }
