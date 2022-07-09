@@ -25,4 +25,23 @@ public class Controller {
     public ResponseDTO findUser(@RequestParam Integer id){
         return serviceMain.Read(id);
     }
+
+    @PutMapping(value = "/u",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ResponseDTO updateUser(@RequestParam Integer id,
+                                  @RequestBody RequestDTO user){
+
+        return serviceMain.update(id,user);
+    }
+
+    @DeleteMapping(value = "/d",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String deleteUser(@RequestParam Integer id){
+        if (id < 2){
+            return serviceMain.print("Was deleted person N: " + serviceMain.deleteA(id));
+        } else if (id >= 2) {
+            return serviceMain.print("Was deleted person N: ") + serviceMain.deleteB(id);
+        }
+        return "Nope";
+    }
 }
