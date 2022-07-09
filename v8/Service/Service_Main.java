@@ -73,4 +73,29 @@ public class Service_Main {
         }
         return null;
     }
+    public Integer deleteA(Integer id){
+        int x = -1;
+        for (int i = 0;i < datalist.size();i++){
+            if (datalist.get(i).getId().equals(id)){
+                x = i;
+                log("Deleted",datalist.get(x));
+            }
+        }
+        if (x != -1){
+            datalist.remove(x);
+            return x;
+        }
+        return null;
+    }
+    public Integer deleteB(Integer id){
+        int x = -1;
+        for (ResponseDTO user:datalist){
+            if (user.getId().equals(id)){
+                x = datalist.indexOf(user);
+                datalist.remove(user);
+                return x;
+            }
+        }
+        return null;
+    }
 }
