@@ -1,5 +1,7 @@
 package com.MAX.v8.Service;
 
+import com.MAX.v8.Controller.Car;
+import com.MAX.v8.Controller.RequestDTO;
 import com.MAX.v8.Controller.Tool;
 
 public class ResponseDTO {
@@ -38,5 +40,20 @@ public class ResponseDTO {
 
     public void setCarEnum(CarEnum carEnum) {
         this.carEnum = carEnum;
+    }
+    public void setEnum(ResponseDTO user, RequestDTO json){
+        for (Car car:json.getCarlist()){
+            switch (car.getValue()){
+                case"F":
+                    user.setCarEnum(CarEnum.Ford);
+                    break;
+                case"A":
+                    user.setCarEnum(CarEnum.Aston_Martin);
+                    break;
+                default:
+                    user.setCarEnum(CarEnum.Bicycle);
+                    break;
+            }
+        }
     }
 }
