@@ -47,6 +47,7 @@ public class Controller {
     @GetMapping(value = "/f",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseDTO findUser(@RequestParam Integer id){
+        logger.info("Get mapping --- https:192.168.0.102:8080/vk/f?id = " + id);
         return serviceMain.Read(id);
     }
 
@@ -54,7 +55,8 @@ public class Controller {
     @ResponseBody
     public ResponseDTO updateUser(@RequestParam Integer id,
                                   @RequestBody RequestDTO user){
-
+        logger.info("Put mapping --- https:192.168.0.102:8080/vk/u?id=" + id);
+        logger.info("body - " + user);
         return serviceMain.update(id,user);
     }
 
@@ -62,8 +64,10 @@ public class Controller {
     @ResponseBody
     public String deleteUser(@RequestParam Integer id){
         if (id < 2){
+            logger.info("Post mapping - Method A - https:192.168.0.102:8080/vk/d?id =" + id);
             return serviceMain.print("Was deleted person N: " + serviceMain.deleteA(id));
         } else if (id >= 2) {
+            logger.info("Post mapping - Method A - https:192.168.0.102:8080/vk/d?id =" + id);
             return serviceMain.print("Was deleted person N: ") + serviceMain.deleteB(id);
         }
         return "Nope";
