@@ -4,13 +4,15 @@ import com.MAX.v8.Service.ResponseDTO;
 import com.MAX.v8.Service.ServiceOne;
 import com.MAX.v8.Service.ServiceTwo;
 import com.MAX.v8.Service.Service_Main;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/vk")
 public class Controller {
-
+    private static final Logger logger = LoggerFactory.getLogger(Controller.class);
     private ServiceOne serviceOne;
     private Service_Main serviceMain;
     @Autowired
@@ -26,6 +28,11 @@ public class Controller {
 
     public Controller(Service_Main serviceMain) {
         this.serviceMain = serviceMain;
+    }
+    @GetMapping(value = "/s",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String service(){
+        return serviceOne.getOne()+"\n"+serviceOne.getTwo()+"\n"+serviceTwo.getOne()+"\n"+serviceTwo.getTwo();
     }
 
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
