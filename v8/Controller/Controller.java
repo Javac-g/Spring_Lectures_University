@@ -32,12 +32,15 @@ public class Controller {
     @GetMapping(value = "/s",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String service(){
+        logger.info("Get mapping --- https:192.168.0.102:8080/vk/s");
+        logger.info("Service one - first: {},Service one - second: {},Service two - first: {},Service two - second: {},",serviceOne.getOne(),serviceOne.getTwo(),serviceTwo.getOne(),serviceTwo.getTwo());
         return serviceOne.getOne()+"\n"+serviceOne.getTwo()+"\n"+serviceTwo.getOne()+"\n"+serviceTwo.getTwo();
     }
 
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public ResponseDTO addUser(@RequestBody RequestDTO user){
+        logger.info("Post mapping --- https:192.168.0.102:8080/vk/a --- body-" + user);
         return serviceMain.Create(user);
     }
 
