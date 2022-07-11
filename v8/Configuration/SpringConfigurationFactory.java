@@ -1,9 +1,7 @@
 package com.MAX.v8.Configuration;
 
 import com.MAX.v8.Controller.Controller;
-import com.MAX.v8.Service.ServiceOne;
-import com.MAX.v8.Service.ServiceTwo;
-import com.MAX.v8.Service.Service_Main;
+import com.MAX.v8.Service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -18,11 +16,21 @@ public class SpringConfigurationFactory {
     public ServiceOne serviceOne(){
         return new ServiceOne();
     }
+    @Bean("A")
+    public ServiceA serviceA(){
+        return new ServiceA();
+    }
+    @Bean("B")
+    public ServiceB serviceB(){
+        return new ServiceB();
+    }
     @Bean(name = "Controller")
     @Scope(value = "prototype")
     public Controller controller(){
         Controller controller = new Controller(serviceMain());
         controller.setServiceOne(serviceOne());
+        controller.setServiceA(serviceA());
+        controller.setServiceB(serviceB());
         return controller;
     }
 

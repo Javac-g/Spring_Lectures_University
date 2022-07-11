@@ -1,9 +1,6 @@
 package com.MAX.v8.Controller;
 
-import com.MAX.v8.Service.ResponseDTO;
-import com.MAX.v8.Service.ServiceOne;
-import com.MAX.v8.Service.ServiceTwo;
-import com.MAX.v8.Service.Service_Main;
+import com.MAX.v8.Service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +11,28 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
     private ServiceOne serviceOne;
+    private ServiceA serviceA;
+    private ServiceB serviceB;
+
     private Service_Main serviceMain;
     @Autowired
     private ServiceTwo serviceTwo;
+
+    public ServiceA getServiceA() {
+        return serviceA;
+    }
+
+    public void setServiceA(ServiceA serviceA) {
+        this.serviceA = serviceA;
+    }
+
+    public ServiceB getServiceB() {
+        return serviceB;
+    }
+
+    public void setServiceB(ServiceB serviceB) {
+        this.serviceB = serviceB;
+    }
 
     public ServiceOne getServiceOne() {
         return serviceOne;
@@ -29,9 +45,21 @@ public class Controller {
     public Controller(Service_Main serviceMain) {
         this.serviceMain = serviceMain;
     }
+
+    @GetMapping(value = "/ss",produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public String sab(){
+        logger.info("service A: " + serviceA);
+        logger.info("service B: " + serviceB);
+        logger.info("Get mapping --- https:192.168.0.102:8080/vk/ss");
+
+        return serviceA.getFirst()+"\n"+serviceA.getSecond()+"\n"+serviceB.getFirst()+"\n"+serviceB.getSecond();
+    }
     @GetMapping(value = "/s",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String service(){
+        logger.info("service A: " + serviceA);
+        logger.info("service B: " + serviceB);
         logger.info("Get mapping --- https:192.168.0.102:8080/vk/s");
         logger.info("Service one - first: {},Service one - second: {},Service two - first: {},Service two - second: {},",serviceOne.getOne(),serviceOne.getTwo(),serviceTwo.getOne(),serviceTwo.getTwo());
         return serviceOne.getOne()+"\n"+serviceOne.getTwo()+"\n"+serviceTwo.getOne()+"\n"+serviceTwo.getTwo();
@@ -67,7 +95,7 @@ public class Controller {
             logger.info("Post mapping - Method A - https:192.168.0.102:8080/vk/d?id =" + id);
             return serviceMain.print("Was deleted person N: " + serviceMain.deleteA(id));
         } else if (id >= 2) {
-            logger.info("Post mapping - Method A - https:192.168.0.102:8080/vk/d?id =" + id);
+            logger.info("Post mapping - Method B - https:192.168.0.102:8080/vk/d?id =" + id);
             return serviceMain.print("Was deleted person N: ") + serviceMain.deleteB(id);
         }
         return "Nope";
