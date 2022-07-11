@@ -17,10 +17,12 @@ public class SpringConfigurationFactory {
         return new ServiceOne();
     }
     @Bean("A")
+    @Scope(value = "prototype")
     public ServiceA serviceA(){
         return new ServiceA();
     }
     @Bean("B")
+    @Scope(value = "prototype")
     public ServiceB serviceB(){
         return new ServiceB();
     }
