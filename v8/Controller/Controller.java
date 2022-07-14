@@ -4,43 +4,25 @@ import com.MAX.v8.Service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/vk")
+@RequestMapping("/Main")
 public class Controller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
-    private ServiceOne serviceOne;
-
-    private ServiceLP serviceLP;
     private Service_Main serviceMain;
-    @Autowired
-    private ServiceTwo serviceTwo;
 
 
 
-    public ServiceOne getServiceOne() {
-        return serviceOne;
-    }
 
-    public void setServiceOne(ServiceOne serviceOne) {
-        this.serviceOne = serviceOne;
-    }
+
 
     public Controller(Service_Main serviceMain) {
         this.serviceMain = serviceMain;
     }
 
 
-    @GetMapping(value = "/s",produces = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseBody
-    public String service(){
-        logger.info("service one: " + serviceOne);
-        logger.info("service two: " + serviceTwo);
-        logger.info("Get mapping --- https:192.168.0.102:8080/vk/s");
-        logger.info("Service one - first: {},Service one - second: {},Service two - first: {},Service two - second: {},",serviceOne.getOne(),serviceOne.getTwo(),serviceTwo.getOne(),serviceTwo.getTwo());
-        return serviceOne.getOne()+"\n"+serviceOne.getTwo()+"\n"+serviceTwo.getOne()+"\n"+serviceTwo.getTwo();
-    }
 
     @PostMapping(value = "/a",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
