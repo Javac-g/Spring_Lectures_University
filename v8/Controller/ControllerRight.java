@@ -31,8 +31,7 @@ public class ControllerRight {
     public String service(){
         logger.info("service one: " + serviceOne);
         logger.info("service two: " + serviceTwo);
-        logger.info("Get mapping --- https:192.168.0.102:8080/vk/s");
-        logger.info("Service one - first: {},Service one - second: {},Service two - first: {},Service two - second: {},",serviceOne.getOne(),serviceOne.getTwo(),serviceTwo.getOne(),serviceTwo.getTwo());
+        logger.info("Get mapping --- https:192.168.0.102:8080/Third/s");
         return serviceOne.getOne()+"\n"+serviceOne.getTwo()+"\n"+serviceTwo.getOne()+"\n"+serviceTwo.getTwo();
     }
 

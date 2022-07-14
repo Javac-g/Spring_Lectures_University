@@ -29,7 +29,7 @@ public class sideController {
     public String sab(){
         logger.info("service A: " + serviceA);
         logger.info("service B: " + serviceB);
-        logger.info("Get mapping --- https:192.168.0.102:8080/vk/ss");
+        logger.info("Get mapping --- https:192.168.0.102:8080/Fourth/s");
 
         return serviceA.getFirst()+"\n"+serviceA.getSecond()+"\n"+serviceB.getFirst()+"\n"+serviceB.getSecond();
     }

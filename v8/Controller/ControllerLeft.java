@@ -19,11 +19,11 @@ public class ControllerLeft {
     public ServiceLP getServiceLP(){
         return null;
     }
-    @GetMapping(value = "/lp",produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = "/s",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public String up(){
 
-        logger.info("Get mapping --- https:192.168.0.102:8080/vk/lp");
+        logger.info("Get mapping --- https:192.168.0.102:8080/second/s");
         logger.info("Service Look: {}" , getServiceLP());
         return getServiceLP().getOne() + "\n" + getServiceLP().getTwo();
     }

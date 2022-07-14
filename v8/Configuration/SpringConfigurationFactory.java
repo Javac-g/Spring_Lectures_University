@@ -1,6 +1,7 @@
 package com.MAX.v8.Configuration;
 
 import com.MAX.v8.Controller.Controller;
+import com.MAX.v8.Controller.ControllerCenter;
 import com.MAX.v8.Controller.ControllerRight;
 import com.MAX.v8.Controller.sideController;
 import com.MAX.v8.Service.*;
@@ -32,6 +33,11 @@ public class SpringConfigurationFactory {
     public ServiceB serviceB(){
         return new ServiceB();
     }
+    @Bean("C")
+    @Scope(value = "prototype")
+    public ServiceC serviceC(){
+        return new ServiceC();
+    }
 
 
     @Bean(name = "Controller")
@@ -56,5 +62,14 @@ public class SpringConfigurationFactory {
         controllerRight.setServiceOne(serviceOne());
         return controllerRight;
     }
-
+    @Bean(name = "ControllerCenter")
+    public ControllerCenter controllerCenter(){
+        ControllerCenter controllerC = new ControllerCenter(){
+            @Override
+            protected ServiceC getServiceC(){
+                return serviceC();
+            }
+        };
+        return controllerC;
+    }
 }
