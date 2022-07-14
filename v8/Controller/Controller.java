@@ -12,7 +12,7 @@ public class Controller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
     private ServiceOne serviceOne;
 
-
+    private ServiceLP serviceLP;
     private Service_Main serviceMain;
     @Autowired
     private ServiceTwo serviceTwo;
