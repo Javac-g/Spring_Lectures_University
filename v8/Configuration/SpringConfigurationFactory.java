@@ -1,13 +1,11 @@
 package com.MAX.v8.Configuration;
 
-import com.MAX.v8.Controller.Controller;
-import com.MAX.v8.Controller.ControllerCenter;
-import com.MAX.v8.Controller.ControllerRight;
-import com.MAX.v8.Controller.sideController;
+import com.MAX.v8.Controller.*;
 import com.MAX.v8.Service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 
 @Configuration
 public class SpringConfigurationFactory {
@@ -38,6 +36,12 @@ public class SpringConfigurationFactory {
     public ServiceC serviceC(){
         return new ServiceC();
     }
+    @Bean("D")
+    @Scope(value = "prototype" ,proxyMode = ScopedProxyMode.TARGET_CLASS)
+    public ServiceD serviceD(){
+
+        return new ServiceD();
+    }
 
 
     @Bean(name = "Controller")
@@ -48,7 +52,7 @@ public class SpringConfigurationFactory {
         return controller;
     }
     @Bean(name = "sideController")
-    @Scope(value = "prototype")
+    @Scope(value = "request")
     public sideController sideController(){
         sideController sideController = new sideController();
         sideController.setServiceA(serviceA());
@@ -71,5 +75,11 @@ public class SpringConfigurationFactory {
             }
         };
         return controllerC;
+    }
+    @Bean("ControllerEast")
+    public ControllerEast controllerEast(){
+        ControllerEast controllerEast = new ControllerEast();
+        controllerEast.setServiceD(serviceD());
+        return controllerEast;
     }
 }
