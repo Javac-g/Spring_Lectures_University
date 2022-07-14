@@ -2,9 +2,9 @@ package com.MAX.v8.Service;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 @Scope(value = "prototype")
 public class ServiceLP {
     @Value("${prop.L1}")

@@ -3,8 +3,6 @@ package com.MAX.v8.Controller;
 import com.MAX.v8.Service.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,10 +10,6 @@ import org.springframework.web.bind.annotation.*;
 public class Controller {
     private static final Logger logger = LoggerFactory.getLogger(Controller.class);
     private Service_Main serviceMain;
-
-
-
-
 
 
     public Controller(Service_Main serviceMain) {
