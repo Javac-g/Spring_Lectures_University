@@ -5,7 +5,7 @@ import com.MAX.v1.Services.Service;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-@RequestMapping("/sigma")
+@RequestMapping("/sigm")
 public class Controller {
 
     private Service service;
