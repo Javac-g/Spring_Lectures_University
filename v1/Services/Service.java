@@ -21,7 +21,7 @@ public class Service {
     public  void log(String type, ResponseDTO user){
         byte[] data = ("\nName: " + user.getName()).getBytes();
         try(ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            FileOutputStream fileOutputStream = new FileOutputStream("log.dat",true);
+            FileOutputStream fileOutputStream = new FileOutputStream("logger.dat",true);
             DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream)){
 
 
