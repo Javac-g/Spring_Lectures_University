@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RequestDTO {
-    String name;
+    String names;
     Integer id;
     Tool tool;
     List<Car> carList = new ArrayList<>();
