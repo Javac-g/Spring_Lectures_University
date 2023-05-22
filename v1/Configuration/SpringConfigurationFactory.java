@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Scope;
 
 @Configuration
 public class SpringConfigurationFactory {
-    @Bean(name = "Service")
+    @Bean(name = "Sssservice")
     public Service serviceBean(){
 
         return new Service();
